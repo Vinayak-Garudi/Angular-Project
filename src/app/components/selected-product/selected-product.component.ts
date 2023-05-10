@@ -12,6 +12,8 @@ export class SelectedProductComponent implements OnInit, OnChanges {
   dummyId: any
   dummyForm: FormGroup
   allValues: any
+  addCart: any
+  val: any = "car"
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private alldata: AllDataService) {
     this.dummyForm = fb.group({
       title: ['Prefilled Title', [Validators.required, Validators.minLength(3)]],
@@ -20,19 +22,24 @@ export class SelectedProductComponent implements OnInit, OnChanges {
     })
 
     this.allValues = this.alldata.getAllData()
+    // this.addCart = this.alldata.addToCart(this.val)
   }
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.dummyId = params.get('dummyId')
     })
     if (this.allValues) {
-      console.log("alldata", this.allValues.username)
-
+      console.log("alldata", this.allValues)
     }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("alldata", this.allValues.username)
+    console.log("alldata", this.allValues)
+  }
+
+  addCartValue(val:any) {
+    this.alldata.addToCart(val)
+    console.log("alldata", this.allValues)
   }
 
   submitDumyForm(res: any) {

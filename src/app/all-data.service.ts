@@ -4,11 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AllDataService {
-
+  cart: any = []
   constructor() { }
   getAllData() {
     return {
-      username: "Vinayak"
+      username: "Vinayak",
+      cart: this.cart
     }
+  }
+
+  addToCart(val: string) {
+    this.cart.push(val)
+  }
+
+  clearCart() {
+    this.cart = []
   }
 }
