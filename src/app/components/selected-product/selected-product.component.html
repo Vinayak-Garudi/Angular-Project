@@ -1,0 +1,42 @@
+<div class="container my-5">
+    <p>Reactive forms and template forms! with {{dummyId}}</p>
+    <h5>User Name: {{allValues.username}}</h5>
+    <!-- template based form -->
+    <!-- <form #dummyForm="ngForm" (submit)="submitDumyForm(dummyForm.value);dummyForm.reset()">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" name="title" ngModel class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description</label>
+            <input type="text" required ngModel name="desc" type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="button" class="btn btn-primary mx-3" value="Reset" (click)="dummyForm.reset()">
+    </form> -->
+
+    <!-- reactive form -->
+    <form class="my-5" [formGroup]="dummyForm">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" formControlName="title" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" formControlName="desc" type="text" class="form-control"
+                id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description 2</label>
+            <input type="text" formControlName="desc2" type="text" class="form-control"
+                id="exampleInputPassword1">
+        </div>
+        <button type="submit" (click)="postData()" class="btn btn-primary">Submit</button>
+        <input type="button" class="btn btn-primary mx-3" value="Reset" (click)="dummyForm.reset()">
+        <input type="button" class="btn btn-primary mx-3" value="Set All" (click)="setAll()">
+        <input type="button" class="btn btn-primary mx-3" value="Set Few" (click)="setFew()">
+        <input type="button" class="btn btn-primary mx-3" value="Reset 2nd Method" (click)="resetForm()">
+    </form>
+</div>

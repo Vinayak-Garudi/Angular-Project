@@ -1,0 +1,9 @@
+<div class="container">
+    <h3 style="text-decoration: underline;">Products</h3>
+    <button routerLink="/" class="btn btn-primary">Home</button>
+    <h3>{{randomValue}}</h3>
+    <app-about (value)="valuee($event)" [productTitle]="apiData.products"></app-about>
+    <!-- <div class="my-2" *ngFor="let products of apiData.products">
+        {{products.title}}
+    </div> -->
+</div>

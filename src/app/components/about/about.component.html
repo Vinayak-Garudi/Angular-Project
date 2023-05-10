@@ -1,0 +1,12 @@
+<div>
+    <p>about works!</p>
+    <div *ngIf="productTitle; else elseBlock">
+        <h4 [title]="productTitle[0].title + ' details'">{{productTitle[0].title}}</h4>
+        <div class="my-2" *ngFor="let products of productTitle">
+            {{products.title}}
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        No Products!
+    </ng-template>
+</div>

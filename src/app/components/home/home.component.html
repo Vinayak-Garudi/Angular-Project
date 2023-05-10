@@ -1,0 +1,27 @@
+<div class="container my-5">
+    <h3>Add Todos</h3>
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" name="title" [(ngModel)]="title" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description</label>
+            <input type="text" [(ngModel)]="desc" name="name" type="text" class="form-control"
+                id="exampleInputPassword1">
+        </div>
+        <button type="button" (click)="addTodo()" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div *ngIf="this.todos.length > 0; else elseCondn">
+        <div *ngFor="let todo of todos" class="container my-5">
+            <h4>{{todo.title}}</h4>
+            <h6>{{todo.desc}}</h6>
+            <button class="btn btn-danger" (click)="deleteTodo(todo)">Delete</button>
+        </div>
+    </div>
+    <ng-template #elseCondn>
+        <h6 class="my-2">No Todos to display!</h6>
+    </ng-template>
+</div>
